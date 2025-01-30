@@ -1,11 +1,46 @@
-instalação
+Installation
+Install the required dependencies by running the following commands:
+
+JSON Server
 npm i json-server@1.0.0-alpha.21
+
+# Webpack and Development Server
+
 npm i webpack@5.89.0 webpack-cli@5.1.4 --save-dev
 npm i webpack-dev-server@4.15.1 --save-dev
 npm i html-webpack-plugin@5.6.0 --save-dev
 
-#OBS.:
-em package.json
-"server" : "json-server (executar json-server) --watch (quando identificar alguma alteração fazer reload) server.json (nome do arquivo que vai usar) --port 3333 ( a porta utilizada (3333 normalmente é para API))"
+# Style Loaders
 
-"scripts" tudo o'que estiver dentro dele por exemplo schedules pode ser executado com npm run + nome (schedules) ;
+npm i style-loader@3.3.3 css-loader@6.8.1 --save-dev
+
+# Asset Management
+
+npm i copy-webpack-plugin@11.0.0 --save-dev
+
+# Babel Configuration
+
+npm i babel-loader@9.1.3 @babel/core@7.23.7 @babel/preset-env@7.23.7 --save-dev
+
+# Utilities
+
+npm i dayjs@1.11.10
+Configuration Notes
+JSON Server Setup
+In your package.json, add the following script to run the JSON server:
+{
+"scripts": {
+"server": "json-server --watch server.json --port 3333"
+}
+}
+Parameters Explained:
+
+--watch: Enables automatic reload when changes are detected in the server file
+server.json: The JSON file containing your mock data
+--port 3333: Sets the API server port (3333 is commonly used for APIs)
+
+NPM Scripts
+All commands defined in the "scripts" section of package.json can be executed using:
+npm run <script-name>
+For example, to start the JSON server:
+npm run server
