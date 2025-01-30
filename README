@@ -1,0 +1,11 @@
+instalação
+npm i json-server@1.0.0-alpha.21
+npm i webpack@5.89.0 webpack-cli@5.1.4 --save-dev
+npm i webpack-dev-server@4.15.1 --save-dev
+npm i html-webpack-plugin@5.6.0 --save-dev
+
+#OBS.:
+em package.json
+"server" : "json-server (executar json-server) --watch (quando identificar alguma alteração fazer reload) server.json (nome do arquivo que vai usar) --port 3333 ( a porta utilizada (3333 normalmente é para API))"
+
+"scripts" tudo o'que estiver dentro dele por exemplo schedules pode ser executado com npm run + nome (schedules) ;
