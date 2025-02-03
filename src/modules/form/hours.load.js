@@ -1,15 +1,17 @@
 import dayjs from "dayjs";
 import { openingHours } from "../../utils/opening-hours.js";
+import { hoursClick } from "./hours-click.js";
 const hours = document.getElementById("hours");
 
 export function hoursLoad({ date }) {
+  hours.innerHTML = "";
   const opening = openingHours.map((hour) => {
     const [scheduleHour] = hour.split(":");
 
     const isHourPast = dayjs(date).add(scheduleHour, "hour").isAfter(dayjs());
     return {
       hour,
-      available: !isHourPast,
+      available: isHourPast,
     };
   });
 
@@ -27,6 +29,7 @@ export function hoursLoad({ date }) {
     }
     hours.append(li);
   });
+  hoursClick();
 }
 
 function hourHeaderAdd(title) {

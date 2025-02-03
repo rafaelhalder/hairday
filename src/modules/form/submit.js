@@ -1,5 +1,6 @@
 import dayjs from "dayjs";
 const form = document.querySelector("form");
+const clientName = document.getElementById("client");
 const selectedDate = document.getElementById("date");
 
 //Date atual para o input
@@ -12,5 +13,22 @@ selectedDate.value = inputToday;
 selectedDate.min = inputToday;
 form.onsubmit = (event) => {
   event.preventDefault();
-  console.log("111");
+
+  try {
+    const name = clientName.value.trim();
+    if (!name) {
+      return alert("Informe o nome do cliente!");
+    }
+    const hourSelected = document.querySelector(".hour-selected");
+
+    if (!hourSelected) {
+      return alert("Selecione a hora");
+    }
+    const [hour] = hourSelected.innerText.split(":");
+
+    const when = dayjs(selectedDate.value).add(hour, "hour");
+    const id = new Date().getTime();
+  } catch (error) {
+    alert("Não foi possivel realizar o agendamento");
+  }
 };
